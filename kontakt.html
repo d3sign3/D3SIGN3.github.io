@@ -1,0 +1,395 @@
+<html>
+<head>
+<title>D3SIGN 3</title>
+<meta charset="UTF-8">
+<style>
+body
+{
+font-family: verdana;
+background-image: url("tlo.png");
+}
+.menu {
+
+	-ms-transition:left 0.3s,box-shadow ease 0.3s;
+	-moz-transition:left 0.3s,box-shadow ease 0.3s;
+	-o-transition:left 0.3s,box-shadow ease 0.3s;
+	-webkit-transition:left 0.3s,box-shadow ease 0.3s;
+	transition:left 0.3s,box-shadow ease 0.3s;
+	z-index:9999;
+	position:fixed;
+	top:0;
+	left:-250px;
+	background-color:#ffe100;
+	width:250px;
+	height:100%;
+	
+}
+
+button{margin:0;border:0;padding:0;}
+
+.show-menu{
+
+	-ms-transition:-ms-transform 0.5s ease-in-out;
+	-moz-transition:-moz-transform 0.5s ease-in-out;
+	-o-transition:-o-transform 0.5s ease-in-out;
+	-webkit-transition:-webkit-transform 0.5s ease-in-out;
+	transition:transform 0.5s ease-in-out;
+	display:block;
+	overflow:hidden;
+	z-index:9999;
+	position:absolute;
+	top:0;
+	right:-60px;
+    box-shadow:none;
+	background-color:#000000;
+	width:60px;
+	height:60px;
+	cursor:pointer;
+	
+}
+
+.menu-bar {
+
+	-ms-transform:-ms-transform 0.4s ease-in-out;
+	-moz-transform:-moz-transform 0.4s ease-in-out;
+	-o-transform:-o-transform 0.4s ease-in-out;
+	-webkit-transform:-webkit-transform 0.4s ease-in-out;
+	transition:transform 0.4s ease-in-out;
+	display:block;
+	background-color:#ffffff;
+	margin:0 auto;
+	margin-bottom:6px;
+	width:40px;
+	height:4px;
+	
+}
+
+.menu-bar-1 {margin-top:5px;}
+
+.clicked {box-shadow:0 0 5px #181818;}
+
+.clicked .menu-bar-1 {
+
+	-ms-transform:rotate(-45deg) translate(-9px, 9px);
+	-moz-transform:rotate(-45deg) translate(-9px, 9px);
+	-o-transform:rotate(-45deg) translate(-9px, 9px);
+	-webkit-transform:rotate(-45deg) translate(-9px, 9px);
+	transform:rotate(-45deg) translate(-9px, 9px);
+	
+}
+
+.clicked .menu-bar-2{transform:translate(40px);}
+
+.clicked .menu-bar-3 {
+
+	-ms-transform:rotate(45deg) translate(-5px, -5px);
+	-moz-transform:rotate(45deg) translate(-5px, -5px);
+	-o-transform:rotate(45deg) translate(-5px, -5px);
+	-webkit-transform:rotate(45deg) translate(-5px, -5px);
+	transform:rotate(45deg) translate(-5px, -5px);
+	
+}
+
+.clicked .menu-bar {width:21px;}
+
+.menu h3 {
+
+	text-align:center;
+	font-size: 30px;
+	color:#ff002a;
+	
+}
+
+ul {list-style:none;}
+
+.menu ul li a {font-size:15px;color:#00aad4;}
+
+.pasek {
+  font-size: 20px;
+  color:#ff002a;
+  text-align: center;
+  margin-left: 0px;
+}
+
+.pasek2 {
+  font-size: 4px;
+  color:#ff002a;
+  text-align: left;
+  margin-left: 0px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.center2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 200px;
+}
+.center3 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.akapit {
+  text-align: justify;
+  color: #ffe100;
+  background-image: "black.png";
+  font-size: 20px;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  text-shadow: 0px 0px 4px black;
+}
+.haslo {
+  background-color: black;
+  color: #ffe100;
+  font-family: sans-serif;
+  text-align: center;
+  margin: 1% -8px 4%;
+  font-size: 4vw;
+}
+.big {
+  text-align: center;
+  color: #ffffff;
+  font-size: 50px;
+  margin: 40px;
+  text-shadow: 1px 1px 4px black;
+}
+.big2 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 4vw;
+  margin: 4% -0.4% 2%;
+  background-color: black;
+  text-shadow: 1px 1px 4px black;
+}
+.btn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 30px;
+  cursor: pointer;
+  min-width: 100%;
+  min-height: 30 px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+.red {
+  border-color: #ff002a;
+  color: #ff002a;
+  border-radius: 5px;
+}
+
+.red:hover {
+  background: #f44336;
+  color: white;
+}
+ #as-footer {
+     background:#000000;
+     padding:40px 0 30px 0;
+	 margin-top: 100px;
+}
+ #as-footer h3 {
+     color:#f44336;
+     font-size:20px;
+     font-weight:600;
+}
+ #as-footer ul li {
+     line-height:35px;
+}
+ #as-footer a, #as-footer p {
+     color:#ffe100;
+     font-size:15px;
+     font-weight:600;
+}
+ #as-footer a {
+     color:#ffe100;
+     text-decoration:none;
+}
+ #as-footer a:hover {
+     color:#fff;
+}
+ #as-footer .as_copy {
+     padding-top:40px;
+     border-top:1px solid #f44336;
+}
+.new1 {
+  color: #ff002a;
+  font-size: 30px;
+  font-weight: 600;
+  padding-left: 4%;
+  padding-right: 4%;
+}
+.new2 {
+  color: #ff002a;
+  font-size: 20px;
+  font-weight: 300;
+  padding-left: 4%;
+  padding-right: 4%;
+}
+.back {
+  background-color: #ffe100;
+  border: 5px #fff solid;
+  padding: 20px;
+  width: 100%;
+}
+.back2 {
+  padding: 4%;
+}
+</style>
+<script>
+let clicked = 0;
+
+function showMenu() {
+
+	const showMenu = document.getElementById('show-menu');
+	const menu = document.getElementById('menu');
+	
+	if(clicked === 0) {
+	
+		showMenu.className='show-menu clicked';
+		
+		menu.style.left = 0;
+		
+		clicked = 1;
+		
+	}
+	
+	else {
+	
+		showMenu.className='show-menu';
+		
+		menu.style.left = '-250px';
+		
+		clicked = 0;
+		
+	}
+	
+}
+</script>
+</head>
+<body>
+<div id="menu" class="menu">
+	<button type="button" id="show-menu" class="show-menu" onclick="showMenu();">
+		<i class="menu-bar menu-bar-1"></i>
+		<i class="menu-bar menu-bar-2"></i>
+		<i class="menu-bar menu-bar-3"></i>
+	</button>
+	<div>
+	<img src="logo.png" class="center2">
+		<h3>MENU</h3>
+		<ul>
+			<div class="pasek2">
+			  <li><a href="index.html"><h4><span style="font-size:20px">Strona Główna</span></h4></a></li>
+			  <li><a href="onas.html"><h4><span style="font-size:20px">O nas</span></h4></a></li>
+			  <li><a href="program.html"><h4><span style="font-size:20px">Program Wyborczy</span></h4></a></li>
+			  <li><a href="kontakt.html"><h4><span style="font-size:20px">Kontakt</span></h4></a></li>
+			</div>
+		</ul>
+	</div>
+	
+<div class="pasek">
+<br>Liczymy na Twój głos!<br>To MY jesteśmy Trójką!
+</div>
+</div>
+  <a href="index.html"><img src="logo1.png" alt="D3SIGN 3" class="center"></a>
+  <div class="haslo">
+      Skontaktuj się z nami!
+  </div>
+<div class="back">
+  <div class="back2">
+    <div class="new1">
+      D3SIGN 3
+    </div>
+    <div class="new2">
+      Skontaktuj się z nami! Oto, jak możesz to zrobić.
+    </div>
+  </div>
+  <hr style="border: 0px; background: #ff002a; height: 1px; width: 80px;">
+  <div class="back2">
+    <div class="new1">
+      Nasz Rzecznik
+    </div>
+    <div class="new2">
+      Imię Nazwisko<br>+48 999 999 999<br><a href="prywatnymailrzecznika@domena.com"><br>prywatnymailrzecznika@domena.com</a>
+    </div>
+  </div>
+  <hr style="border: 0px; background: #ff002a; height: 1px; width: 80px;">
+  <div class="back2">
+    <div class="new1">
+      Nasz profil na Facebooku
+    </div>
+    <div class="new2">
+    <a href="https://facebook.com/d3sign-3"><br>Link do naszego Facebooka</a>
+    </div>
+  </div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<footer id="as-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div class="as-footer-box mt-4">
+					<img src="logo.png" class="center2">
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-2">
+                <div class="as-footer-box mt-4">
+                    <h3 class="mt-3">Nasza Strona</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Strona Główna</a></li>
+                        <li><a href="onas.html">O nas</a></li>
+                        <li><a href="program.html">Program Wyborczy</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-2">
+                <div class="as-footer-box mt-4">
+                    <h3 class="mt-3">Kontakt</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:d3sign3@outlook.com">E-mail:<br>d3sign3@outlook.com</a></li>
+                        <li><span style="color:#ffe100">Telefon:<br>+48 999 999 999</span></li>
+                    </ul>
+                </div>
+            </div>
+           
+            <div class="col-sm-12 col-md-2">
+                <div class="as-footer-box mt-4">
+                    <h3 class="mt-3">Social Media</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+			<div class="col-sm-12 col-md-2">
+                <div class="as-footer-box mt-4">
+                    <h3 class="mt-3">Autor</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="onas.html">Aleksandra Filipowska</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="as_copy text-center mt-4 ">
+                    <p><a href="index.html">D3SIGN 3</a> &copy 2021 | Wszelkie prawa zastrzeżone.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+</body>
+</html>
